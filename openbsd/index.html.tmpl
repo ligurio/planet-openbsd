@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="<TMPL_VAR generator ESCAPE="HTML">">
+  
+<title><TMPL_VAR name></title>
+<meta charset="utf8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/combined.css" rel="stylesheet" />
+<link href="css/css" rel="stylesheet" type="text/css" />
+<link href="css/planet.css" rel="stylesheet" />
+<TMPL_IF feedtype>
+<!--<link rel="alternate" href="<TMPL_VAR feed ESCAPE="HTML">" title="<TMPL_VAR channel_title_plain ESCAPE="HTML">" type="application/<TMPL_VAR feedtype>+xml">-->
+<link rel="alternate" href="http://feeds.feedburner.com/planet-openbsd" title="<TMPL_VAR channel_title_plain ESCAPE="HTML">" type="application/<TMPL_VAR feedtype>+xml">
+</TMPL_IF>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47888478-7', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+ <body>
+<!--<h1><TMPL_VAR name></h1>-->
+  <div class="container">
+   <div class="row">
+    <div class="col-md-9">
+
+<TMPL_VAR admin>
+
+<TMPL_LOOP Items>
+<TMPL_IF new_date>
+<TMPL_UNLESS __FIRST__>
+### End <div class="channelgroup">
+</div>
+### End <div class="daygroup">
+</div>
+</TMPL_UNLESS>
+<div class="daygroup">
+<h2><TMPL_VAR new_date></h2>
+</TMPL_IF>
+
+<TMPL_IF new_channel>
+<TMPL_UNLESS new_date>
+### End <div class="channelgroup">
+</div>
+</TMPL_UNLESS>
+<div class="channelgroup">
+
+### Planet provides template variables for *all* configuration options for
+### the channel (and defaults), even if it doesn't know about them.  We
+### exploit this here to add hackergotchi faces to our channels.  Planet
+### doesn't know about the "face", "facewidth" and "faceheight" configuration
+### variables, but makes them available to us anyway.
+
+<h3><a href="<TMPL_VAR channel_link ESCAPE="HTML">" title="<TMPL_VAR channel_title_plain ESCAPE="HTML">"><TMPL_VAR channel_name></a></h3>
+<TMPL_IF channel_face>
+<img class="face" src="images/<TMPL_VAR channel_face ESCAPE="HTML">" width="<TMPL_VAR channel_facewidth ESCAPE="HTML">" height="<TMPL_VAR channel_faceheight ESCAPE="HTML">" alt="">
+</TMPL_IF>
+</TMPL_IF>
+
+
+<div class="entrygroup" id="<TMPL_VAR id>"<TMPL_IF channel_language> lang="<TMPL_VAR channel_language>"</TMPL_IF>>
+<TMPL_IF title>
+<h4<TMPL_IF title_language> lang="<TMPL_VAR title_language>"</TMPL_IF>><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_VAR title></a></h4>
+</TMPL_IF>
+<div class="entry">
+<div class="content"<TMPL_IF content_language> lang="<TMPL_VAR content_language>"</TMPL_IF>>
+<TMPL_VAR content>
+</div>
+
+### Planet also makes available all of the information from the feed
+### that it can.  Use the 'planet-cache' tool on the cache file for
+### a particular feed to find out what additional keys it supports.
+### Comment extra fields are 'author' and 'category' which we
+### demonstrate below.
+
+<p class="date">
+<a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_IF author>by <TMPL_VAR author ESCAPE="HTML"> at </TMPL_IF><TMPL_VAR date><TMPL_IF category> under <TMPL_VAR category></TMPL_IF></a>
+</p>
+</div>
+</div>
+
+<TMPL_IF __LAST__>
+### End <div class="channelgroup">
+</div>
+### End <div class="daygroup">
+</div>
+</TMPL_IF>
+</TMPL_LOOP>
+
+
+    </div>
+    <div class="col-md-3">
+
+<h1><TMPL_VAR name></h1>
+
+<div class="sidebar">
+<h2>About</h2>
+<p>This page is an aggregation of OpenBSD-related resources.
+
+The opinions expressed here do not reflect the opinions of the OpenBSD Project.
+The OpenBSD Project is not responsible for the accuracy of any of the
+information supplied.</p>
+
+<p>
+<h2>Tweets by OpenBSD developers</h2>
+<a class="twitter-timeline" data-width="220" data-height="500" data-theme="light" href="https://twitter.com/AFresh1/lists/openbsd">A Twitter List by AFresh1</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+
+<p>
+<h2>OpenBSD changes</h2>
+<a class="twitter-timeline" data-width="220" data-height="500" data-theme="light" href="https://twitter.com/estet/lists/openbsd-changes">A Twitter List by estet</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+
+<h2>Contributors</h2>
+<ul>
+<TMPL_LOOP Channels>
+<li>
+<a href="<TMPL_VAR url ESCAPE="HTML">" title="subscribe"><img src="images/feed-icon-10x10.png" alt="(feed)"></a> <a <TMPL_IF link>href="<TMPL_VAR link ESCAPE="HTML">" </TMPL_IF><TMPL_IF message>class="message" title="<TMPL_VAR message ESCAPE="HTML">"</TMPL_IF><TMPL_UNLESS message>title="<TMPL_VAR title_plain ESCAPE="HTML">"</TMPL_UNLESS>><TMPL_VAR name></a>
+</li>
+</TMPL_LOOP>
+</ul>
+
+<p>
+<strong>Last updated:</strong><br>
+<TMPL_VAR date><br>
+<em>All times are UTC.</em><br>
+</p>
+
+<p>
+<h2>Resources</h2>
+<ul>
+<li><a href="http://www.openbsd.org/books.html">OpenBSD books</a></li>
+<li><a href="http://www.openbsd.org/papers/">OpenBSD papers</a></li>
+</ul>
+</p>
+
+<p>
+<h2>Links</h2>
+<ul>
+<li><a href="http://www.openbsd.org/ftp.html">Get OpenBSD</a></li>
+<li><a href="http://man.openbsd.org/">Man(ual) pages</a></li>
+<li><a href="http://www.openbsd.org/faq/">FAQ</a></li>
+<!--<li><a href="http://www.openbsdfoundation.org/">The OpenBSD Foundation</a></li>-->
+<!--<li><a href="https://github.com/ligurio/openbsd-awesome">OpenBSD awesome</a></li>-->
+</ul>
+</p>
+
+<p><a href="http://feeds.feedburner.com/planet-openbsd"><img src="http://feeds.feedburner.com/~fc/planet-openbsd?bg=99CCFF&amp;fg=444444&amp;anim=0" height="26" width="88" style="border:0" alt="" /></a></p>
+</div>
+
+</body></html>
