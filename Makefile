@@ -1,3 +1,11 @@
+FILES = atom.xml
+FILES += css
+FILES += foafroll.xml
+FILES += images
+FILES += index.html
+FILES += opml.xml
+FILES += rss10.xml
+FILES += rss20.xml
 
 all: update
 
@@ -6,4 +14,7 @@ update:
 	cd venus/; python planet.py -v ../config.ini
 
 copy:
-	scp -r atom.xml css foafroll.xml images index.html opml.xml rss10.xml rss20.xml gw.bronevichok.ru:/var/www/html/www.bronevichok.ru/openbsd-planet/
+	scp -r ${FILES} gw.bronevichok.ru:/var/www/html/www.bronevichok.ru/openbsd-planet/
+
+publish:
+	cp -R ${FILES} /var/www/html/www.bronevichok.ru/openbsd-planet/
