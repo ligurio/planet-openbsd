@@ -1,0 +1,11 @@
+html {background:#ffffff;}
+html,a{color:#000000;}
+body{font-family:Verdana,sans-serif;font-size:medium;margin:40px auto 1em auto;line-height:1.3em;}
+.title{font-size:120%;font-weight:bold;}
+.footer{clear:both;text-align:center;font-size:small;}
+img{border:0;}
+.feedflare{display:none;}
+.author{text-decoration:none;display:block;float:right;margin-left:2em;font-size:small;white-space:nowrap;}
+ul{list-style:none;margin-left:0;padding-left:0}
+li{clear:both;}
+.content{margin:1em 40px;}
