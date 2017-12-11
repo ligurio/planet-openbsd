@@ -15,7 +15,7 @@ update:
 	cd venus/; python planet.py -v ../config.ini
 
 copy:
-	scp -r ${FILES} gw.bronevichok.ru:/var/www/htdocs/www.bronevichok.ru/openbsd-planet/
+	scp -r ${FILES} gw.bronevichok.ru:/var/www/htdocs/openbsdnow.org/
 
 publish:
-	cp -R ${FILES} /var/www/htdocs/www.bronevichok.ru/openbsd-planet/
+	cp -R ${FILES} /var/www/htdocs/openbsdnow.org/
