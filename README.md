@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ligurio/openbsdnow.org.svg?branch=master)](https://travis-ci.org/ligurio/openbsdnow.org)
+
 # Planet OpenBSD
 
 source code of site [Planet OpenBSD](http://openbsdnow.org/)
