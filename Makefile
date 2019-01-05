@@ -8,6 +8,8 @@ FILES += opml.xml
 FILES += rss10.xml
 FILES += rss20.xml
 
+DIR = "/var/www/htdocs/www.bronevichok.ru/openbsdnow/"
+
 all: update
 
 update:
@@ -15,7 +17,7 @@ update:
 	cd venus/; python planet.py -v ../config.ini
 
 copy:
-	scp -r ${FILES} gw.bronevichok.ru:/var/www/htdocs/openbsdnow.org/
+	scp -r ${FILES} www.bronevichok.ru:${DIR}
 
 publish:
-	cp -R ${FILES} /var/www/htdocs/openbsdnow.org/
+	cp -R ${FILES} ${DIR}
