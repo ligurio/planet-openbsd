@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/ligurio/openbsdnow.org.svg?branch=master)](https://travis-ci.org/ligurio/openbsdnow.org)
 
-# Planet OpenBSD
+# 🌎 Planet OpenBSD
 
 source code of site [Planet OpenBSD](https://bronevichok.ru/openbsdnow/) with
 all news around OpenBSD project. Site consists from static HTML pages generated
