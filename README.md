@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ligurio/openbsdnow.org.svg?branch=master)](https://travis-ci.org/ligurio/openbsdnow.org)
+[![Build Status](https://travis-ci.org/ligurio/planet-openbsd.svg?branch=master)](https://travis-ci.org/ligurio/planet-openbsd)
 
 # 🌎 Planet OpenBSD
 
