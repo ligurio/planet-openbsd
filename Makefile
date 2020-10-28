@@ -8,7 +8,7 @@ FILES += opml.xml
 FILES += rss10.xml
 FILES += rss20.xml
 
-DIR = "/var/www/htdocs/www.bronevichok.ru/openbsdnow/"
+DIR = "/var/www/htdocs/bronevichok.ru/openbsdnow/"
 
 all: update
 
